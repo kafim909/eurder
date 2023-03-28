@@ -5,21 +5,18 @@ import com.selfeval.eurder.domain.user.baseclasses.Contact;
 import com.selfeval.eurder.domain.user.baseclasses.Name;
 import com.selfeval.eurder.domain.user.baseclasses.Role;
 import com.selfeval.eurder.domain.user.baseclasses.User;
-import com.selfeval.eurder.service.user.dto.CreateUserDTO;
-import com.selfeval.eurder.service.user.dto.UserDTO;
+import com.selfeval.eurder.service.user.dto.UserMinimumDataDTO;
 import com.selfeval.eurder.service.user.mappers.UserOutputMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class UserServiceTest {
     private UserService userService;
     private UserRepository userRepositoryMock;
     private UserOutputMapper outputMapperMock;
     private User user;
-    private UserDTO userDTO;
+    private UserMinimumDataDTO userDTO;
 
     @BeforeEach
     void setUp() {

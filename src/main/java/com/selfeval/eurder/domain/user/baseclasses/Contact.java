@@ -35,8 +35,8 @@ public class Contact {
         return address.street;
     }
 
-    public int getNumber() {
-        return address.number;
+    public int getHouseNumber() {
+        return address.houseNumber;
     }
 
     public static class Address {
@@ -44,14 +44,14 @@ public class Contact {
         private final String country;
         private final String postCode;
         private final String street;
-        private final int number;
+        private final int houseNumber;
 
         public Address(String city, String country, String postCode, String street, int number) {
             this.city = city;
             this.country = country;
             this.postCode = postCode;
             this.street = street;
-            this.number = number;
+            this.houseNumber = number;
         }
 
 
