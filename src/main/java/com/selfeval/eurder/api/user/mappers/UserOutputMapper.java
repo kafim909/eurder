@@ -1,8 +1,8 @@
-package com.selfeval.eurder.service.user.mappers;
+package com.selfeval.eurder.api.user.mappers;
 
+import com.selfeval.eurder.api.user.dto.UserMinimumDataDTO;
 import com.selfeval.eurder.domain.user.baseclasses.Name;
 import com.selfeval.eurder.domain.user.baseclasses.User;
-import com.selfeval.eurder.service.user.dto.UserMinimumDataDTO;
 import org.springframework.stereotype.Component;
 
 @Component

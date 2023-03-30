@@ -17,4 +17,12 @@ public class ItemRepository {
         itemList.add(item);
         return item;
     }
+
+    public Item getItemById(int id){
+        return itemList
+                .stream()
+                .filter(item -> item.getId() == id)
+                .findFirst()
+                .orElseThrow();
+    }
 }

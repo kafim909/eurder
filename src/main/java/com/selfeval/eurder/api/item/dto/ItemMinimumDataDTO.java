@@ -1,4 +1,4 @@
-package com.selfeval.eurder.service.item.dto;
+package com.selfeval.eurder.api.item.dto;
 
 public class ItemMinimumDataDTO {
     private final String name;

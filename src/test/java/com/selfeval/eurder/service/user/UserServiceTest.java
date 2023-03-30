@@ -5,24 +5,22 @@ import com.selfeval.eurder.domain.user.baseclasses.Contact;
 import com.selfeval.eurder.domain.user.baseclasses.Name;
 import com.selfeval.eurder.domain.user.baseclasses.Role;
 import com.selfeval.eurder.domain.user.baseclasses.User;
-import com.selfeval.eurder.service.user.dto.UserMinimumDataDTO;
-import com.selfeval.eurder.service.user.mappers.UserOutputMapper;
+import com.selfeval.eurder.api.user.dto.UserMinimumDataDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class UserServiceTest {
     private UserService userService;
     private UserRepository userRepositoryMock;
-    private UserOutputMapper outputMapperMock;
     private User user;
     private UserMinimumDataDTO userDTO;
 
     @BeforeEach
     void setUp() {
-        outputMapperMock = Mockito.mock(UserOutputMapper.class);
         userRepositoryMock = Mockito.mock(UserRepository.class);
-        userService = new UserService(userRepositoryMock, outputMapperMock);
+        userService = new UserService(userRepositoryMock);
         user = new User(
                 new Name("Tournay", "Maxime"),
                 new Contact(new Contact.Address(
@@ -34,13 +32,15 @@ class UserServiceTest {
                         "123456789",
                         "coucou@coucou.coucou"),
                 Role.CUSTOMER);
-//        userDTO = new UserDTO(user.getName(), user.getRole(), user.getId());
     }
+
     @Test
-    void createUser_whenCreatingUser_thenAddUserWithUserRepository() {
-        userService.createUser(user);
-        Mockito.verify(userRepositoryMock).addUser(user);
+    void createUser_WhenCreatingUser_thenSameUserShouldBeReturned() {
+        Mockito.when(userRepositoryMock.addUser(user)).thenReturn(user);
+        assertEquals(user, userService.createUser(user));
     }
+
+
 
 
 

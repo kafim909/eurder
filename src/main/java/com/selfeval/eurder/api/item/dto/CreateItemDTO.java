@@ -1,4 +1,4 @@
-package com.selfeval.eurder.service.item.dto;
+package com.selfeval.eurder.api.item.dto;
 
 import com.selfeval.eurder.domain.shared.valueclasses.Price;
 
@@ -11,7 +11,7 @@ public class CreateItemDTO {
     public CreateItemDTO(String name, String description, Price price, int stockAmount) {
         this.name = name;
         this.description = description;
-        this.price = price;
+        this.price = new Price(price);
         this.stockAmount = stockAmount;
     }
 

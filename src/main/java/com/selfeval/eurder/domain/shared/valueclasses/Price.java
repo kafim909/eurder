@@ -1,16 +1,21 @@
 package com.selfeval.eurder.domain.shared.valueclasses;
 
 public class Price {
-    private final double price;
+    private final double amount;
     private final String currency;
 
-    public Price(double price, String currency) {
-        this.price = price;
+    public Price(double amount, String currency) {
+        this.amount = amount;
         this.currency = currency;
     }
 
-    public double getPrice() {
-        return price;
+    public Price (Price price){
+        this.amount = price.getAmount();
+        this.currency = price.getCurrency();
+    }
+
+    public double getAmount() {
+        return amount;
     }
 
     public String getCurrency() {

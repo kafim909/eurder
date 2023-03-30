@@ -1,4 +1,4 @@
-package com.selfeval.eurder.service.user.dto;
+package com.selfeval.eurder.api.user.dto;
 
 import com.selfeval.eurder.domain.user.baseclasses.Contact;
 import com.selfeval.eurder.domain.user.baseclasses.Name;

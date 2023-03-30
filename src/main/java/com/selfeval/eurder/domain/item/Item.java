@@ -9,7 +9,7 @@ public class Item {
     private final String name;
     private final String description;
     private final Price price;
-    private final int stockAmount;
+    private int stockAmount;
 
     public Item(String name, String description, Price price, int stockAmount) {
         id = ++counter;
@@ -37,5 +37,9 @@ public class Item {
 
     public int getStockAmount() {
         return stockAmount;
+    }
+
+    public void orderedItem_updateStockAmount(int amountOrdered){
+        this.stockAmount -= amountOrdered;
     }
 }
