@@ -1,5 +1,6 @@
 package com.selfeval.eurder.api;
 
+import com.selfeval.eurder.domain.exceptions.BadRequestException;
 import com.selfeval.eurder.domain.exceptions.UnauthorizedException;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -8,8 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.io.IOException;
 import java.util.NoSuchElementException;
 
-import static org.springframework.http.HttpStatus.FORBIDDEN;
-import static org.springframework.http.HttpStatus.NOT_FOUND;
+import static org.springframework.http.HttpStatus.*;
 
 @ControllerAdvice
 public class ApiExceptionHandler {
@@ -20,6 +20,11 @@ public class ApiExceptionHandler {
     @ExceptionHandler(IllegalAccessException.class)
     protected void unauthorizedException(UnauthorizedException exception, HttpServletResponse response) throws  IOException {
         response.sendError(FORBIDDEN.value(), exception.getMessage());
+    }
+
+    @ExceptionHandler(BadRequestException.class)
+    protected void badRequestException(BadRequestException exception, HttpServletResponse response) throws  IOException{
+        response.sendError(BAD_REQUEST.value(), exception.getMessage());
     }
 
 }
