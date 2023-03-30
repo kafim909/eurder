@@ -1,9 +1,6 @@
 package com.selfeval.eurder.domain.user;
 
-import com.selfeval.eurder.domain.user.baseclasses.Contact;
-import com.selfeval.eurder.domain.user.baseclasses.Name;
-import com.selfeval.eurder.domain.user.baseclasses.Role;
-import com.selfeval.eurder.domain.user.baseclasses.User;
+import com.selfeval.eurder.domain.user.baseclasses.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -21,7 +18,7 @@ public class UserRepository {
     private void addDefaultAdminUser(){
         userList.add(new User(
                 new Name("Pascal", "LeBoss"),
-                new Contact(new Contact.Address(
+                new Contact(new Address(
                         "BossTown",
                         "KingsLand",
                         "10",

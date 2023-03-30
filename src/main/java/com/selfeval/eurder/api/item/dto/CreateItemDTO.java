@@ -11,7 +11,7 @@ public class CreateItemDTO {
     public CreateItemDTO(String name, String description, Price price, int stockAmount) {
         this.name = name;
         this.description = description;
-        this.price = new Price(price);
+        this.price = price;
         this.stockAmount = stockAmount;
     }
 

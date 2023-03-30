@@ -1,10 +1,7 @@
 package com.selfeval.eurder.service.user;
 
 import com.selfeval.eurder.domain.user.UserRepository;
-import com.selfeval.eurder.domain.user.baseclasses.Contact;
-import com.selfeval.eurder.domain.user.baseclasses.Name;
-import com.selfeval.eurder.domain.user.baseclasses.Role;
-import com.selfeval.eurder.domain.user.baseclasses.User;
+import com.selfeval.eurder.domain.user.baseclasses.*;
 import com.selfeval.eurder.api.user.dto.UserMinimumDataDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,7 +20,7 @@ class UserServiceTest {
         userService = new UserService(userRepositoryMock);
         user = new User(
                 new Name("Tournay", "Maxime"),
-                new Contact(new Contact.Address(
+                new Contact(new Address(
                         "Brussels",
                         "Belgiun",
                         "1030",

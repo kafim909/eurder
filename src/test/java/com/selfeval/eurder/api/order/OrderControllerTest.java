@@ -5,10 +5,7 @@ import com.selfeval.eurder.domain.item.Item;
 import com.selfeval.eurder.domain.item.ItemRepository;
 import com.selfeval.eurder.domain.shared.valueclasses.Price;
 import com.selfeval.eurder.domain.user.UserRepository;
-import com.selfeval.eurder.domain.user.baseclasses.Contact;
-import com.selfeval.eurder.domain.user.baseclasses.Name;
-import com.selfeval.eurder.domain.user.baseclasses.Role;
-import com.selfeval.eurder.domain.user.baseclasses.User;
+import com.selfeval.eurder.domain.user.baseclasses.*;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -55,7 +52,7 @@ class OrderControllerTest {
                 100));
         userRepository.addUser(new User(
                 new Name("Max", "Jean"),
-                new Contact(new Contact.Address(
+                new Contact(new Address(
                         "BossTown",
                         "KingsLand",
                         "10",

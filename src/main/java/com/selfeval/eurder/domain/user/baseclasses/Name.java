@@ -9,6 +9,11 @@ public class Name {
         this.lastName = lastName;
     }
 
+    public Name(Name nameCopy){
+        firstName = nameCopy.getFirstName();
+        lastName = nameCopy.getLastName();
+    }
+
     public String getFirstName() {
         return firstName;
     }

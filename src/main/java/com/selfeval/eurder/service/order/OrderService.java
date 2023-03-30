@@ -17,7 +17,7 @@ public class OrderService {
     }
 
     public Order createNewOrder(Map<Integer, Integer> order, int userId){
-//        ValidationTools.UserACustomerOrElseThrowException(userId);
+        ValidationTools.UserACustomerOrElseThrowException(userId);
         return orderRepository.createOrder(order, userId);
     }
 }

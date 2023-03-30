@@ -2,6 +2,7 @@ package com.selfeval.eurder.domain.user;
 
 import com.selfeval.eurder.domain.user.baseclasses.Contact;
 import com.selfeval.eurder.domain.user.baseclasses.Name;
+import com.selfeval.eurder.domain.user.baseclasses.Address;
 import com.selfeval.eurder.domain.user.baseclasses.Role;
 import com.selfeval.eurder.domain.user.baseclasses.User;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,7 +22,7 @@ class UserRepositoryTest {
         userRepository = new UserRepository();
         myUser = new User(
                 new Name("Max", "Jean"),
-                new Contact(new Contact.Address(
+                new Contact(new Address(
                         "BossTown",
                         "KingsLand",
                         "10",

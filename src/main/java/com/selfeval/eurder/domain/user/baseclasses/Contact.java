@@ -11,49 +11,21 @@ public class Contact {
         this.mailAddress = mailAddress;
     }
 
+    public Contact(Contact contactCopy) {
+        this.address = new Address(contactCopy.getAddress());
+        this.phoneNumber = contactCopy.getPhoneNumber();
+        this.mailAddress = contactCopy.getMailAddress();
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
     public String getMailAddress() {
         return mailAddress;
-    }
-
-    public String getCity() {
-        return address.city;
-    }
-
-    public String getCountry() {
-        return address.country;
-    }
-
-    public String getPostCode() {
-        return address.postCode;
-    }
-
-    public String getStreet() {
-        return address.street;
-    }
-
-    public int getHouseNumber() {
-        return address.houseNumber;
-    }
-
-    public static class Address {
-        private final String city;
-        private final String country;
-        private final String postCode;
-        private final String street;
-        private final int houseNumber;
-
-        public Address(String city, String country, String postCode, String street, int number) {
-            this.city = city;
-            this.country = country;
-            this.postCode = postCode;
-            this.street = street;
-            this.houseNumber = number;
-        }
-
-
     }
 }
