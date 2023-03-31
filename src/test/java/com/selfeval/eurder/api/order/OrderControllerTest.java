@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
+import org.springframework.test.annotation.DirtiesContext;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -24,6 +25,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 
 @DisplayName("OrderController EndToEnd Testing")
 @SpringBootTest(webEnvironment = RANDOM_PORT)
+@DirtiesContext
 class OrderControllerTest {
 
     private final Map<String, String> orderInputMap = new HashMap<>();
