@@ -27,7 +27,9 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @DirtiesContext
 class OrderControllerTest {
-
+    private Item item1;
+    private Item item2;
+    private User user;
     private final Map<String, String> orderInputMap = new HashMap<>();
     @Autowired
     private ItemRepository itemRepository;
@@ -39,17 +41,19 @@ class OrderControllerTest {
     @BeforeEach
     void setUp() {
         RestAssured.port = port;
-        itemRepository.addItem(new Item(
+        item1 = new Item(
                 "Cola",
                 "Boisson",
                 new Price(1.0, "Eur"),
-                100));
-        itemRepository.addItem(new Item(
+                100);
+        item2 = new Item(
                 "Ice Tea",
                 "Boisson",
                 new Price(2.0, "Eur"),
-                100));
-        userRepository.addUser(new User(
+                100);
+        itemRepository.addItem(item1);
+        itemRepository.addItem(item2);
+        user = new User(
                 new Name("Max", "Jean"),
                 new Contact(new Address(
                         "BossTown",
@@ -59,9 +63,10 @@ class OrderControllerTest {
                         10),
                         "0458975645",
                         "pascalis.leboss@gmail.com"),
-                Role.CUSTOMER));
-        orderInputMap.put("1","5");
-        orderInputMap.put("2","5");
+                Role.CUSTOMER);
+        userRepository.addUser(user);
+        orderInputMap.put(String.valueOf(item1.getId()),"5");
+        orderInputMap.put(String.valueOf(item2.getId()),"5");
     }
 
     @Test
@@ -73,7 +78,7 @@ class OrderControllerTest {
                 .contentType(JSON)
                 .when()
                 .port(port)
-                .post("/orders/2/create")
+                .post("/orders/" + user.getId() +"/create")
                 .then()
                 .assertThat()
                 .statusCode(HttpStatus.CREATED.value())
