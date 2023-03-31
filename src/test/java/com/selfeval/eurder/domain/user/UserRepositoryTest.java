@@ -36,7 +36,7 @@ class UserRepositoryTest {
     @Test
     void getUserById_givenAnAddedUser_whenSearchingWithId_ThenFindUser() {
         userRepository.addUser(myUser);
-        assertEquals(myUser, userRepository.getUserById(2));
+        assertEquals(myUser, userRepository.getUserById(myUser.getId()));
     }
 
 }
