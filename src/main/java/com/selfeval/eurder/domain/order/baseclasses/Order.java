@@ -2,18 +2,22 @@ package com.selfeval.eurder.domain.order.baseclasses;
 
 import com.selfeval.eurder.domain.item.Item;
 import com.selfeval.eurder.domain.shared.valueclasses.Price;
+import org.checkerframework.checker.units.qual.C;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class Order {
     private int userId;
-    private final int id;
+    private int id;
     private static int counter;
     private Price totalOrderPrice;
     private final List<ItemGroup> orderedItems = new ArrayList<>();
+
+    public Order (){}
 
     public Order(int userId) {
         this.userId = userId;

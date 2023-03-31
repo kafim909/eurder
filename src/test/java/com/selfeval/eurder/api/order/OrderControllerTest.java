@@ -11,12 +11,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,11 +23,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 @DisplayName("OrderController EndToEnd Testing")
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = RANDOM_PORT)
 class OrderControllerTest {
 
-    private Map<String, String> order = new HashMap<>();
-
+    private final Map<String, String> orderInputMap = new HashMap<>();
     @Autowired
     private ItemRepository itemRepository;
     @Autowired
@@ -61,15 +58,15 @@ class OrderControllerTest {
                         "0458975645",
                         "pascalis.leboss@gmail.com"),
                 Role.CUSTOMER));
-        order.put("1","5");
-        order.put("2","5");
+        orderInputMap.put("1","5");
+        orderInputMap.put("2","5");
     }
 
     @Test
     void createOrder_thenTotalPriceIsReturned() {
         priceOrderDTO = RestAssured
                 .given()
-                .body(order)
+                .body(orderInputMap)
                 .accept(JSON)
                 .contentType(JSON)
                 .when()

@@ -20,6 +20,7 @@ class OrderTest {
 
     @BeforeEach
     void setUp() {
+        order = new Order(2);
         item = new Item("Cola", "Boisson", new Price(1.2, "Eur"), 10);
     }
 
